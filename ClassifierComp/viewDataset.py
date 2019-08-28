@@ -22,27 +22,34 @@ from sklearn.ensemble import RandomForestClassifier
 
 #The following code is simply to allow viewing of the dataset in an easy to use manner.
 
+#load dataset
 dataset = pd.read_csv('heart.csv')
 
+#gleam info about the data
 print("Info")
 dataset.info()
 
+#compile and plot the correlation matrix
 print("\n\nCompiling Correlation Analysis...")
 rcParams['figure.figsize'] = 20, 14
 corr = dataset.corr()
 plt.matshow(corr, cmap='coolwarm')
 plt.yticks(np.arange(dataset.shape[1]), dataset.columns)
 plt.xticks(np.arange(dataset.shape[1]), dataset.columns)
+#label each square in the correlation matrix plot
 for (i, j), z in np.ndenumerate(corr):
     plt.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
             bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
 plt.colorbar()
 plt.title("Correlation Analysis Matrix", fontsize=30, fontweight="bold")
 #pdf.savefig(plt.gcf())
-plt.savefig("Correlation Analysis Matrix")
 
+#save and clear figure
+plt.savefig("Correlation Analysis Matrix")
 print("Saved!")
 plt.clf()
+
+#compile histogram graphs for each column
 print("\n\nCompiling Histograms...")
 for col in dataset.columns: 
 	dataset.hist(column=col)
@@ -50,7 +57,8 @@ for col in dataset.columns:
 	plt.ylabel('Count', fontsize=25)
 	plt.title(col[0].upper() + col[1:] + " Histogram", fontsize=30, fontweight="bold")
 	#pdf.savefig(plt.gcf())
+	#save and clear figure
 	plt.savefig(col[0].upper() + col[1:] + " Histogram")
+	plt.clf()
 print("Saved!")
-plt.clf()
 #pdf.close()
