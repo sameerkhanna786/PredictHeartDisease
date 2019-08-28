@@ -8,10 +8,6 @@
 <p align="center"> 
 <img src="Media/About.png">
 </p>
-
-<p align="center"> 
-<img src="Media/About.png">
-</p>
 		
 <p align="center">
 <img src="Media/Data Distribution.png>
