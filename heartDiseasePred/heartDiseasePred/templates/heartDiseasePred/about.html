@@ -1,0 +1,18 @@
+{% extends "heartDiseasePred/base.html" %}
+{% block content %}
+	<article class="media content-section">
+      <div class="media-body">
+        <p>
+          This predictor is a logistic regression based prediction scheme with a 95% accuracy. The classifier was chosen from a variety of canidates ranging from KNN, to OLS, to RR, to even binary perceptrons.
+        </p>
+
+        <p>
+          The database used to train the classifier is the UCI Heart Disease database, with 303 patients' data anonymized. The database has a total of 14 parameters (not including presence of heart disease), all of which are used in the analysis. Descriptions of each of the parameters can be found in the sidebar to the right.
+        </p>
+
+        <p>
+          You do not need to fill out all of the form's data. The classifier retrains itself if not all of the data is given in order to give as accurate a result as possible. However, the more data you provide, the better the results are.
+        </p>
+      </div>
+    </article>
+{% endblock content %}

@@ -1,0 +1,56 @@
+# Basic
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+from matplotlib.cm import rainbow
+import matplotlib.backends.backend_pdf
+#pdf = matplotlib.backends.backend_pdf.PdfPages("viewDataset.pdf")
+import warnings
+warnings.filterwarnings('ignore')
+import seaborn as sns
+
+# Other libraries
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Machine Learning
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+#The following code is simply to allow viewing of the dataset in an easy to use manner.
+
+dataset = pd.read_csv('heart.csv')
+
+print("Info")
+dataset.info()
+
+print("\n\nCompiling Correlation Analysis...")
+rcParams['figure.figsize'] = 20, 14
+corr = dataset.corr()
+plt.matshow(corr, cmap='coolwarm')
+plt.yticks(np.arange(dataset.shape[1]), dataset.columns)
+plt.xticks(np.arange(dataset.shape[1]), dataset.columns)
+for (i, j), z in np.ndenumerate(corr):
+    plt.text(j, i, '{:0.3f}'.format(z), ha='center', va='center',
+            bbox=dict(boxstyle='round', facecolor='white', edgecolor='0.3'))
+plt.colorbar()
+plt.title("Correlation Analysis Matrix", fontsize=30, fontweight="bold")
+#pdf.savefig(plt.gcf())
+plt.savefig("Correlation Analysis Matrix")
+
+print("Saved!")
+plt.clf()
+print("\n\nCompiling Histograms...")
+for col in dataset.columns: 
+	dataset.hist(column=col)
+	plt.xlabel(col[0].upper() + col[1:] + ' Values', fontsize=25)
+	plt.ylabel('Count', fontsize=25)
+	plt.title(col[0].upper() + col[1:] + " Histogram", fontsize=30, fontweight="bold")
+	#pdf.savefig(plt.gcf())
+	plt.savefig(col[0].upper() + col[1:] + " Histogram")
+print("Saved!")
+plt.clf()
+#pdf.close()

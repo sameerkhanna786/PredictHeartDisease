@@ -1,0 +1,24 @@
+{% extends "heartDiseasePred/base.html" %}
+{% block content %}
+	<article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="{% url 'form-home' %}">Refill Questionaire</a>
+          <small class="text-muted" href="{% url 'form-home' %}">Not enough information was provided for an accurate assessment to be given.</small>
+        </div>
+        <h2>Error</h2>
+        <p class="article-content">
+        	    <div id="container">
+        	    	<center>
+	        			<div class="image-container">
+	            			<img src="http://images.clipartpanda.com/fault-clipart-atencion.png" height="400" width="400" align = "middle">
+	        			</div>
+        			</center>
+    			</div>​
+        </p>
+        <p>
+          Please fill out more information!
+        </p>
+      </div>
+    </article>
+{% endblock content %}
