@@ -1,7 +1,7 @@
 # PredictHeartDisease
 Fill out a form and see if you have heart disease through the power of Machine Learning! 
  
-This predictor is a logistic regression based prediction scheme with a 95% accuracy. The classifier was chosen from a variety of canidates ranging from KNN, to OLS, to RR, to even binary perceptrons.
+This predictor is a logistic regression based prediction scheme. The classifier was chosen from a variety of canidates ranging from KNN, to OLS, to RR, to even binary perceptrons.
 
 The database used to train the classifier is the UCI Heart Disease database, with 303 patients' data anonymized. The database has a total of 14 parameters (not including presence of heart disease), all of which are used in the analysis. Descriptions of each of the parameters can be found in the sidebar to the right.
 
@@ -110,13 +110,13 @@ There do not seem to be strong correlations between any parameter and the target
 <img src="Media/Thal Histogram.png">
 </p>
 
-There seems to be two different types of data we can see here. One type is organized into classes; for example Ca is organized into unique values. The other type follows a standard distribution with a range of values. We should handle the former type via dummy variables, and the former by scaling.
+There seems to be two different types of data we can see here. One type is organized into classes; for example Ca is organized into unique values. The other type follows a standard distribution with a range of values. We should handle the former type via dummy variables, and the latter by scaling.
 
 ## Classifier Testing
 
 Not all classifiers are equal; some are better suited for certain jobs. For this project, I decided to compare KNN, OLS (via RR with alpha = 0), RR, DT, RF and LogReg.
 
-Some of these classifiers have parameters that affect their accuracy. Before comapring them against one another, we first need to optimize these classifiers themselves.
+Some of these classifiers have parameters that affect their accuracy. Before comparing them against one another, we first need to optimize these classifiers themselves.
 
 <p align="center">
 <img src="Media/KNNScores.png">
