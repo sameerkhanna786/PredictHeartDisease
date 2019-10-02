@@ -140,4 +140,4 @@ Now that we have optimized each classifier, it is time to compare them against o
 <img src="Media/ClassifierComp.png">
 </p>
 
-As can be seen here, we find LogReg, or Logistic Regression, is the best classifier with an accuracy of 95%! This is the classifier we used to analyze our forms.
+As can be seen here, we find LogReg, or Logistic Regression, is the best classifier with an accuracy of 97%! This is the classifier we used to analyze our forms.
